@@ -1,3 +1,13 @@
+## [Unreleased] (target: v1.0.3)
+
+### Added
+- **Shared Geological Specification Header & Biome-Tuned Distribution (`include/nd/stone.h`, `src/libnd-stone.c`)**:
+  - Added `<nd/stone.h>` (`nd_stone_spec_t`, `nd_stone_noise_eval_ex`) for deterministic server/client mineral and boulder evaluation.
+  - Tuned stone and boulder spawn density across biomes (enhancing rocky alpine, scree, volcanic, and desert outcrop distribution while keeping fertile meadows open).
+
+### Changed
+- Refactored `stllog` logging comments, removed `add-prefix` paths, and cleaned dependencies.
+
 ## [1.0.2]
 
 - **Declarative DSV Table (`data/stones.dsv`)**:
@@ -9,7 +19,7 @@
 ## [1.0.1]
 
 - **macOS: link with `-undefined dynamic_lookup`.** macOS `ld` rejects
-  undefined symbols in a shared library, but `WARN` needs `qsyslog` — an
+  undefined symbols in a shared library, but `WARN` needs `stllog` — an
   engine-provided function pointer resolved at `dlopen` time (Linux allows
   this by default). `-undefined dynamic_lookup` is the Darwin equivalent, set
   as `LDFLAGS-libnd-stone-Darwin` so no other platform is affected.

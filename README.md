@@ -12,10 +12,11 @@ two events rather than none.
 make install
 ```
 
-Installs one file:
+Installs:
 
 ```
 lib/libnd-stone.so
+include/nd/stone.h
 ```
 
 There is deliberately no `lib/nd-stone.so` symlink. `xy_load()` appends `.so`
@@ -27,9 +28,7 @@ would have shipped the library under one name and asked the loader for another.
 
 Also packaged for deb, apk, rpm, brew and openbsd from a `v*` tag.
 
-It installs no header because it exports no API — `on_spawn` and `on_add` are
-event hooks the engine declares itself in `nd/hooks.h`, not something another
-module calls.
+`<nd/stone.h>` exports the shared geological mineral/boulder table (`nd_stone_spec_t`) and deterministic placement evaluator (`nd_stone_noise_eval_ex`).
 
 ## Build from source
 
